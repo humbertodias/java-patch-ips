@@ -106,7 +106,7 @@ public class IpsPatcher {
 
     /* Check head */
     private void readHead() throws IOException {
-        byte head[] = new byte[5];
+        byte [] head = new byte[5];
         String headTemplate = "PATCH";
         input.read(head);
         if (headTemplate.equals(new String(head))) {

@@ -13,11 +13,11 @@ public class Controller {
     public Controller(View view) {
         this.view = view;
 
-        view.btnPatch.addActionListener(this::BtnPatchActionPerformed);
-        view.btnCancel.addActionListener(this::BtnCancelActionPerformed);
+        view.btnPatch.addActionListener(this::btnPatchActionPerformed);
+        view.btnCancel.addActionListener(this::btnCancelActionPerformed);
 
-        view.btnBrowseFile.addActionListener(this::BtnBrowseFileActionPerformed);
-        view.btnBrowsePatch.addActionListener(this::BtnBrowsePatchActionPerformed);
+        view.btnBrowseFile.addActionListener(this::btnBrowseFileActionPerformed);
+        view.btnBrowsePatch.addActionListener(this::btnBrowsePatchActionPerformed);
     }
 
     public void run() {
@@ -25,11 +25,11 @@ public class Controller {
     }
 
 
-    private void BtnCancelActionPerformed(ActionEvent evt) {
+    private void btnCancelActionPerformed(ActionEvent evt) {
         System.exit(0);
     }
 
-    private void BtnPatchActionPerformed(ActionEvent evt) {
+    private void btnPatchActionPerformed(ActionEvent evt) {
         try {
             final IpsPatcher ips = new IpsPatcher(view.cmbPatch.getSelectedItem().toString(), view.cmbFile.getSelectedItem().toString(), view.chkBackup.isSelected());
             ips.patch();
@@ -39,24 +39,24 @@ public class Controller {
         }
     }
 
-    private void BtnBrowsePatchActionPerformed(ActionEvent evt) {
+    private void btnBrowsePatchActionPerformed(ActionEvent evt) {
         final FileNameExtensionFilter filter = new FileNameExtensionFilter("Patch's IPS", "ips");
-        Browse(view.cmbPatch, filter);
+        browse(view.cmbPatch, filter);
     }
 
-    private void BtnBrowseFileActionPerformed(ActionEvent evt) {
-        Browse(view.cmbFile, null);
+    private void btnBrowseFileActionPerformed(ActionEvent evt) {
+        browse(view.cmbFile, null);
     }
 
-    public boolean Browse(JComboBox Combo, FileNameExtensionFilter filter) {
+    private boolean browse(JComboBox combo, FileNameExtensionFilter filter) {
         final JFileChooser chooser = new JFileChooser();
         chooser.setAcceptAllFileFilterUsed(false);
         if (filter != null)
             chooser.setFileFilter(filter);
         int returnVal = chooser.showOpenDialog(view);
         if (returnVal == 0) {
-            File SelectedFile = chooser.getSelectedFile();
-            Combo.addItem(SelectedFile.getPath());
+            final File selectedFile = chooser.getSelectedFile();
+            combo.addItem(selectedFile.getPath());
             return false;
         }
         return false;
