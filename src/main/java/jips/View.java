@@ -2,12 +2,9 @@ package jips;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.File;
 
 public class View extends JDialog {
 
@@ -16,11 +13,11 @@ public class View extends JDialog {
     private JPanel panelPatching;
     private JPanel panelFileToPatch;
     protected JComboBox cmbFile;
-    private JButton btnBrowseFile;
+    protected JButton btnBrowseFile;
 
     private JPanel panelPatchingFile;
     protected JComboBox cmbPatch;
-    private JButton btnBrowsePatch;
+    protected JButton btnBrowsePatch;
 
     private JPanel panelOptions;
     protected JCheckBox chkBackup;
@@ -70,7 +67,6 @@ public class View extends JDialog {
         this.panelFileToPatch.add(this.cmbFile);
 
         this.btnBrowseFile.setText("...");
-        this.btnBrowseFile.addActionListener(this::BtnBrowseFileActionPerformed);
         this.panelFileToPatch.add(this.btnBrowseFile);
 
         this.panelPatching.add(this.panelFileToPatch);
@@ -83,7 +79,6 @@ public class View extends JDialog {
         this.panelPatchingFile.add(this.cmbPatch);
 
         this.btnBrowsePatch.setText("...");
-        this.btnBrowsePatch.addActionListener(this::BtnBrowsePatchActionPerformed);
         this.panelPatchingFile.add(this.btnBrowsePatch);
 
         this.panelPatching.add(this.panelPatchingFile);
@@ -111,30 +106,6 @@ public class View extends JDialog {
         setMinimumSize(new Dimension(300, 225));
         pack();
         this.setLocationRelativeTo(null);
-    }
-
-    private void BtnBrowsePatchActionPerformed(ActionEvent evt) {
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("Patch's IPS", "ips");
-        Browse(this.cmbPatch, filter);
-    }
-
-    private void BtnBrowseFileActionPerformed(ActionEvent evt) {
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("All", "*.*");
-        Browse(this.cmbFile, filter);
-    }
-
-
-    public boolean Browse(JComboBox Combo, FileNameExtensionFilter filter) {
-        final JFileChooser chooser = new JFileChooser();
-        chooser.setAcceptAllFileFilterUsed(false);
-        chooser.setFileFilter(filter);
-        int returnVal = chooser.showOpenDialog(this);
-        if (returnVal == 0) {
-            File SelectedFile = chooser.getSelectedFile();
-            Combo.addItem(SelectedFile.getPath());
-            return false;
-        }
-        return false;
     }
 
 }
