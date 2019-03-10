@@ -1,6 +1,15 @@
 # Jips
 
-Simple java app to apply ips  patch file on rom files.
+Simple java app to apply ips patch file on rom files.
+
+
+# Req
+
+* Java 8+
+* Maven 3+
+
+
+# Run
 
     mvn package
     
@@ -8,9 +17,7 @@ Simple java app to apply ips  patch file on rom files.
     
 ![](doc/jips.png)    
 
-eg.
-
-## Path
+## Patch
 
 [smw.ips](doc/smw.ips)
 
@@ -36,4 +43,3 @@ After applied, on ZSnes
 * [Lazy Ips](https://github.com/btimofeev/lazy_ips)
 
 * [RomPatcher.js](https://www.marcrobledo.com/RomPatcher.js)
-
