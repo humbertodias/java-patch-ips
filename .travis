@@ -1,15 +1,14 @@
 language: java
 
-matrix:
-  include:
-  - jdk: oraclejdk8
+sudo: false
+
+jdk: oraclejdk8
+
+before_install: mvn package
 
 # Only clone the most recent commit.
 git:
   depth: 1
-
-script:
-  - mvn clean package
 
 deploy:
   - provider: releases
