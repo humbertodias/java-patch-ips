@@ -45,14 +45,14 @@ public class Controller {
     }
 
     private void BtnBrowseFileActionPerformed(ActionEvent evt) {
-        final FileNameExtensionFilter filter = new FileNameExtensionFilter("All", "*.*");
-        Browse(view.cmbFile, filter);
+        Browse(view.cmbFile, null);
     }
 
     public boolean Browse(JComboBox Combo, FileNameExtensionFilter filter) {
         final JFileChooser chooser = new JFileChooser();
         chooser.setAcceptAllFileFilterUsed(false);
-        chooser.setFileFilter(filter);
+        if (filter != null)
+            chooser.setFileFilter(filter);
         int returnVal = chooser.showOpenDialog(view);
         if (returnVal == 0) {
             File SelectedFile = chooser.getSelectedFile();
