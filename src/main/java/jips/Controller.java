@@ -31,7 +31,7 @@ public class Controller {
 
     private void BtnPatchActionPerformed(ActionEvent evt) {
         try {
-            IpsPatcher ips = new IpsPatcher(view.cmbPatch.getSelectedItem().toString(), view.cmbFile.getSelectedItem().toString(), view.chkBackup.isSelected());
+            final IpsPatcher ips = new IpsPatcher(view.cmbPatch.getSelectedItem().toString(), view.cmbFile.getSelectedItem().toString(), view.chkBackup.isSelected());
             ips.patch();
             JOptionPane.showMessageDialog(view, "Patching Complete!\nPatches applied");
         } catch (IOException e) {
@@ -40,12 +40,12 @@ public class Controller {
     }
 
     private void BtnBrowsePatchActionPerformed(ActionEvent evt) {
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("Patch's IPS", "ips");
+        final FileNameExtensionFilter filter = new FileNameExtensionFilter("Patch's IPS", "ips");
         Browse(view.cmbPatch, filter);
     }
 
     private void BtnBrowseFileActionPerformed(ActionEvent evt) {
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("All", "*.*");
+        final FileNameExtensionFilter filter = new FileNameExtensionFilter("All", "*.*");
         Browse(view.cmbFile, filter);
     }
 

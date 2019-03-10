@@ -1,0 +1,29 @@
+language: java
+
+matrix:
+  include:
+  - jdk: oraclejdk8
+
+# Only clone the most recent commit.
+git:
+  depth: 1
+
+script:
+  - mvn clean package
+
+deploy:
+  - provider: releases
+    file_glob: true
+    file:
+      - target/jips.jar
+    api_key: $GITHUB_TOKEN
+    skip_cleanup: true
+    on:
+      tags: true
+
+notifications:
+  email:
+    recipients:
+      - hldtux@gmail.com
+    on_success: never # default: change
+    on_failure: always # default: always

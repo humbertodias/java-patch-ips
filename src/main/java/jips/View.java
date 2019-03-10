@@ -1,10 +1,9 @@
 package jips;
 
 import javax.swing.*;
-import javax.swing.border.TitledBorder;
+import javax.swing.border.*;
 import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 
 public class View extends JDialog {
 
@@ -31,6 +30,12 @@ public class View extends JDialog {
     }
 
     private void initComponents() {
+
+        setTitle("JIPS 4.0");
+
+        final Image image = getToolkit().getImage(getClass().getResource("/jips.png"));
+        setIconImage(image);
+
         this.tabbedPane1 = new JTabbedPane();
         this.panelPatching = new JPanel();
         this.panelFileToPatch = new JPanel();
@@ -50,7 +55,6 @@ public class View extends JDialog {
         this.btnCancel = new JButton();
 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setTitle("JIPS 4.0");
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent evt) {
                 System.exit(0);

@@ -17,11 +17,17 @@ Simple java app to apply ips patch file on rom files.
     
 ![](doc/jips.png)    
 
-## Patch
+<div style="page-break-after: always;"></div>
+
+## Usage
+
+### Patch
+
+This patch changes a snes rom super mario world, to be able to play with Luigi as second player.
 
 [smw.ips](doc/smw.ips)
 
-## Rom (Original)
+### Rom (Original)
 
 [Super Mario World (U) [!].smc](https://romsmania.cc/roms/super-nintendo/super-mario-world-254711)
     
