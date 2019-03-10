@@ -1,13 +1,14 @@
+[![Build Status](https://travis-ci.org/humbertodias/java-patch-ips.svg?branch=master)](https://travis-ci.org/humbertodias/java-patch-ips)
+
 # Jips
 
 Simple java app to apply ips patch file on rom files.
-
+Checkout on [releases](https://github.com/humbertodias/java-patch-ips/releases).
 
 # Req
 
 * Java 8+
 * Maven 3+
-
 
 # Run
 
