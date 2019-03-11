@@ -1,3 +1,15 @@
+package:
+	mvn package
+
+exec:
+	mvn exec:java -Dexec.mainClass=jips.Main
+
+run:
+	java -jar target/jips.jar
+
+clean:
+	mvn clean
+
 mdpdf-install:
 	npm install mdpdf -g
 
