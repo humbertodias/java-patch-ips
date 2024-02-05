@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/humbertodias/java-patch-ips.svg?branch=master)](https://travis-ci.org/humbertodias/java-patch-ips)
+[![Build, Test, and Publish Release](https://github.com/humbertodias/java-patch-ips/actions/workflows/release.yml/badge.svg)](https://github.com/humbertodias/java-patch-ips/actions/workflows/release.yml)
 
 # Jips
 
